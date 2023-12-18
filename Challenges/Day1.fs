@@ -21,8 +21,8 @@ module Day1 =
 
         let mutable newLine = line
         for mat in matches do
-            let (_, sp, vl) = mat
-            newLine <- newLine.Replace(sp, vl)
+            let (rank, sp, vl) = mat
+            newLine <- newLine.Insert(rank, vl)
         newLine
 
     let GetCalibrationValues(line: string ) =
