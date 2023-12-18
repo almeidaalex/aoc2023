@@ -7,9 +7,10 @@
     <None Include="Files/day1_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Files/day1_input2.txt">
+    <None Include="Files/day2_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="Day1.fs" />
+    <Compile Include="Day2.fs" />
   </ItemGroup>
 </Project>
