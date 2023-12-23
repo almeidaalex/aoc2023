@@ -1,6 +1,6 @@
 namespace Challenges
 
-open System
+open System.IO
 
 module Day2 =
 
