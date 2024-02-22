@@ -45,14 +45,14 @@ module Day2 =
     |> Array.map mapFromString
     |> Map.ofArray
 
-  let private mapSet (line: string) =
+  let private mapSets (line: string) =
     line.Split(';')
     |> Array.map getSetRevealed
     |> List.ofArray
 
   let parseGame (lineGame: string): Game =
     let parts = lineGame.Split(':')
-    let sets = parts.[1] |> mapSet
+    let sets = parts.[1] |> mapSets
     {Id = getId parts.[0]; Revealed = sets}
 
   let sumOfPossibleGames(games: string list, config: Configuration) : uint16 =
