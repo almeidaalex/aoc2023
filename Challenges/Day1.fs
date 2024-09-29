@@ -12,18 +12,21 @@ module Day1 =
         $"{digits[0]}{digits[1]}"
 
     let private spelledToDigit(line: string) =
-        let num = ["zero";"one"; "two"; "three"; "four"; "five"; "six"; "seven"; "eight";"nine"]
-        let matches =
-            num
-            |> List.mapi (fun i v -> (line.IndexOf(v), num[i], i.ToString()))
-            |> List.filter (fun (rank, sp, vl) -> rank >= 0 )
-            |> List.sort
+      // I declared array with spelled numbers, then I can take advantage of the index
+      let num = ["zero"; "one"; "two"; "three"; "four"; "five"; "six"; "seven"; "eight"; "nine"]
 
-        let mutable newLine = line
-        for mat in matches do
-            let (rank, sp, vl) = mat
-            newLine <- newLine.Insert(rank, vl)
-        newLine
+      let replaceAll (input: string) (oldValue: string) (newValue: string) =
+          printfn "Replacing %s with %s" oldValue newValue
+          input.Replace(oldValue, newValue)
+
+      let matches =
+          num
+          |> List.mapi (fun i v -> (line.IndexOf(v), v, i.ToString()))
+          |> List.filter (fun (rank, sp, vl) -> rank >= 0)
+          |> List.sort
+
+      matches
+      |> List.fold (fun acc (rank, sp, vl) -> replaceAll acc sp vl) line
 
     let GetCalibrationValues(line: string ) =
         line
